@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil King Farm - Premium Farm Equipment</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* CSS Variables / Design Tokens */
+        :root {
+            --brand-green: #2D6A4F;
+            --brand-green-hover: #1B4332;
+            --brand-gold: #D4AF37;
+            --brand-black: #1A1A1A;
+            --brand-gray-50: #F9FAFB;
+            --brand-gray-100: #F3F4F6;
+            --brand-gray-400: #9CA3AF;
+            --brand-gray-500: #6B7280;
+            --brand-gray-600: #4B5563;
+            --brand-gray-800: #1F2937;
+            --shadow-card: 0 4px 24px rgba(0,0,0,0.04);
+            --shadow-card-hover: 0 12px 32px rgba(0,0,0,0.08);
+            --transition-bounce: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--brand-black);
+            background-color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Common Typography */
+        .section-heading {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            color: var(--brand-black);
+        }
+
+        .section-subheading {
+            font-size: 1.125rem;
+            color: var(--brand-gray-500);
+            font-weight: 500;
+        }
+
+        /* ----- NAVBAR ----- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--brand-green);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--brand-gray-600);
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-green);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--brand-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: gap;
+            flex-gap: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--brand-green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s var(--transition-bounce);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(45,106,79,0.2);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--brand-green-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(45,106,79,0.3);
+        }
+
+        /* ----- HERO SECTION ----- */
+        .hero {
+            position: relative;
+            padding: 10rem 0 6rem;
+            background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+            overflow: hidden;
+        }
+
+        /* Abstract Orbs */
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+            animation: float 10s infinite ease-in-out alternate;
+        }
+        .orb-1 { width: 400px; height: 400px; background: rgba(45,106,79,0.1); top: 10%; left: -5%; }
+        .orb-2 { width: 500px; height: 500px; background: rgba(212,175,55,0.05); bottom: 10%; right: -5%; animation-delay: -5s; }
+
+        .hero-inner {
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: fadeUp 1s var(--transition-bounce) both;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(8px);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 1px solid rgba(0,0,0,0.05);
+            align-self: flex-start;
+        }
+
+        .stars i { color: var(--brand-gold); width: 14px; height: 14px; }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--brand-black);
+            letter-spacing: -1px;
+        }
+
+        .hero-sub {
+            font-size: 1.125rem;
+            color: var(--brand-gray-600);
+            max-width: 90%;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .usp-list {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .usp-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.8);
+            border: 1px solid rgba(255,255,255,0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            font-size: 0.875rem;
+            font-weight: 800;
+        }
+
+        .usp-item i { color: var(--brand-green); }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .btn-outline {
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(10px);
+            border: 2px solid white;
+            color: var(--brand-black);
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 800;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid white;
+            padding: 1rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover { text-transform: translateY(-5px); }
+        .stat-val { font-size: 1.5rem; font-weight: 900; color: var(--brand-black); }
+        .stat-label { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: var(--brand-gray-500); letter-spacing: 1px; margin-top: 0.25rem; }
+
+        .hero-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 0.75rem;
+            height: 500px;
+            animation: fadeIn 1.5s ease both 0.3s;
+        }
+
+        .hero-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.7s ease;
+        }
+
+        .hero-gallery div { overflow: hidden; border-radius: 16px; }
+        .hero-gallery div:hover img { transform: scale(1.05); }
+        .gallery-main { grid-row: span 2; }
+
+        /* ----- CATEGORIES SECTION ----- */
+        .categories {
+            padding: 6rem 0;
+            background: #ffffff;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+        }
+
+        .view-all {
+            color: var(--brand-green);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+        .view-all:hover { gap: 0.75rem; }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cat-card {
+            background: white;
+            border: 1px solid var(--brand-gray-100);
+            border-radius: 24px;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            transition: all 0.5s var(--transition-bounce);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-card-hover);
+            border-color: transparent;
+        }
+
+        .cat-icon-wrap {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.25rem;
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cat-card:hover .cat-icon-wrap {
+            transform: scale(1.1) rotate(-3deg);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+        }
+
+        .cat-glow {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0;
+            transition: all 0.7s ease;
+            z-index: 0;
+        }
+
+        .cat-card:hover .cat-glow {
+            opacity: 1;
+            transform: scale(1.5);
+        }
+
+        .cat-title {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--brand-black);
+            margin-bottom: 0.25rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cat-count {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--brand-gray-400);
+            transition: opacity 0.3s ease;
+        }
+
+        .cat-card:hover .cat-count { opacity: 0; }
+
+        .cat-explore {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s var(--transition-bounce);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--brand-green);
+        }
+
+        .cat-card:hover .cat-explore {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Specific Category Colors */
+        .bg-blue-light { background: linear-gradient(135deg, #eff6ff, #e0e7ff); border: 1px solid #bfdbfe; color: #2563eb; }
+        .bg-cyan-light { background: linear-gradient(135deg, #ecfeff, #eff6ff); border: 1px solid #a5f3fc; color: #0891b2; }
+        .bg-pink-light { background: linear-gradient(135deg, #fdf2f8, #fff1f2); border: 1px solid #fbcfe8; color: #db2777; }
+        .bg-orange-light { background: linear-gradient(135deg, #fff7ed, #fef2f2); border: 1px solid #fed7aa; color: #ea580c; }
+        .bg-gray-light { background: linear-gradient(135deg, #f9fafb, #f8fafc); border: 1px solid #e5e7eb; color: #4b5563; }
+        .bg-green-light { background: linear-gradient(135deg, #f0fdf4, #ecfdf5); border: 1px solid #bbf7d0; color: #16a34a; }
+
+        .glow-blue { background: rgba(59, 130, 246, 0.2); }
+        .glow-cyan { background: rgba(6, 182, 212, 0.2); }
+        .glow-pink { background: rgba(236, 72, 153, 0.2); }
+        .glow-orange { background: rgba(249, 115, 22, 0.2); }
+        .glow-gray { background: rgba(107, 114, 128, 0.2); }
+        .glow-green { background: rgba(34, 197, 94, 0.2); }
+
+        /* ----- FEATURED PRODUCTS ----- */
+        .products {
+            padding: 6rem 0;
+            background: var(--brand-gray-50);
+        }
+
+        .prod-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .prod-img-wrap {
+            position: relative;
+            height: 240px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .prod-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .prod-img {
+            transform: scale(1.08);
+        }
+
+        .prod-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--brand-green);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .quick-view {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(4px);
+            padding: 0.6rem 1.2rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--brand-black);
+            opacity: 0;
+            transition: all 0.4s var(--transition-bounce);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-card:hover .quick-view {
+            bottom: 1rem;
+            opacity: 1;
+        }
+
+        .prod-info {
+            padding: 1.5rem;
+        }
+
+        .prod-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--brand-gray-400);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .prod-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--brand-black);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .prod-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .prod-price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--brand-green);
+        }
+
+        .prod-old-price {
+            font-size: 0.9rem;
+            color: var(--brand-gray-400);
+            text-decoration: line-through;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+
+        .btn-add {
+            background: var(--brand-gray-100);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--brand-gray-800);
+        }
+
+        .btn-add:hover {
+            background: var(--brand-green);
+            color: white;
+            transform: rotate(90deg);
+        }
+        
+        .products-center-btn {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* ----- ANIMATIONS ----- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-20px) translateX(10px); }
+            100% { transform: translateY(0px) translateX(0px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-inner { grid-template-columns: 1fr; }
+            .hero-gallery { display: none; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-title { font-size: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions { display: none; }
+            .hero { padding: 8rem 0 4rem; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .hero-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header id="header">
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <i data-lucide="tractor"></i>
+                Tamil King Farm
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="btn-primary">
+                    <i data-lucide="shopping-cart" style="width: 18px; height: 18px;"></i>
+                    Cart (0)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-orb orb-1"></div>
+        <div class="hero-orb orb-2"></div>
+        
+        <div class="container hero-inner">
+            <div class="hero-content">
+                <div class="badge">
+                    <div class="stars">
+                        <i data-lucide="star" style="fill: currentColor;"></i>
+                        <i data-lucide="star" style="fill: currentColor;"></i>
+                        <i data-lucide="star" style="fill: currentColor;"></i>
+                        <i data-lucide="star" style="fill: currentColor;"></i>
+                        <i data-lucide="star" style="fill: currentColor;"></i>
+                    </div>
+                    India's #1 Trusted Brand
+                </div>
+                
+                <h1 class="hero-title">Empowering Tamil Nadu's Farmers</h1>
+                <p class="hero-sub">Premium livestock farming equipment, dairy tools, and animal care supplies. Authentic quality with lightning-fast delivery.</p>
+                
+                <div class="usp-list">
+                    <div class="usp-item"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> High-Quality Tools</div>
+                    <div class="usp-item"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> Free Delivery Offers</div>
+                    <div class="usp-item"><i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i> 24/7 Expert Support</div>
+                </div>
+
+                <div class="hero-ctas">
+                    <button class="btn-primary" style="padding: 1rem 2rem; font-size: 1.05rem;">
+                        Shop Equipment
+                        <i data-lucide="arrow-right" style="width: 20px; height: 20px;"></i>
+                    </button>
+                    <button class="btn-outline">
+                        Learn More
+                    </button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-val">1.2k+</div>
+                        <div class="stat-label">Farmers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-val">50+</div>
+                        <div class="stat-label">Products</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-val">4.8</div>
+                        <div class="stat-label">Rating</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-val">2-5d</div>
+                        <div class="stat-label">Delivery</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-gallery">
+                <div class="gallery-main">
+                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80" alt="Farm tools">
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=400&q=80" alt="Milking machine process">
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1465379944081-7f47de8d74ac?w=400&q=80" alt="Dairy cow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-heading">Shop by Category</h2>
+                    <p class="section-subheading">Everything your farm needs in one place</p>
+                </div>
+                <a href="#" class="view-all">
+                    View All <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+                </a>
+            </div>
+
+            <div class="cat-grid">
+                <!-- Category 1 -->
+                <div class="cat-card">
+                    <div class="cat-glow glow-blue"></div>
+                    <div class="cat-icon-wrap bg-blue-light">
+                        <i data-lucide="settings"></i>
+                    </div>
+                    <h3 class="cat-title">Machinery</h3>
+                    <div class="cat-count">12 Items</div>
+                    <div class="cat-explore">
+                        Explore <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="cat-card">
+                    <div class="cat-glow glow-cyan"></div>
+                    <div class="cat-icon-wrap bg-cyan-light">
+                        <i data-lucide="droplets"></i>
+                    </div>
+                    <h3 class="cat-title">Dairy Tools</h3>
+                    <div class="cat-count">8 Items</div>
+                    <div class="cat-explore">
+                        Explore <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="cat-card">
+                    <div class="cat-glow glow-pink"></div>
+                    <div class="cat-icon-wrap bg-pink-light">
+                        <i data-lucide="heart-handshake"></i>
+                    </div>
+                    <h3 class="cat-title">Animal Care</h3>
+                    <div class="cat-count">15 Items</div>
+                    <div class="cat-explore">
+                        Explore <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="cat-card">
+                    <div class="cat-glow glow-orange"></div>
+                    <div class="cat-icon-wrap bg-orange-light">
+                        <i data-lucide="pill"></i>
+                    </div>
+                    <h3 class="cat-title">Medicines</h3>
+                    <div class="cat-count">24 Items</div>
+                    <div class="cat-explore">
+                        Explore <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                    </div>
+                </div>
+
+                <!-- Category 5 -->
+                <div class="cat-card">
+                    <div class="cat-glow glow-gray"></div>
+                    <div class="cat-icon-wrap bg-gray-light">
+                        <i data-lucide="wrench"></i>
+                    </div>
+                    <h3 class="cat-title">Farm Tools</h3>
+                    <div class="cat-count">30 Items</div>
+                    <div class="cat-explore">
+                        Explore <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                    </div>
+                </div>
+
+                <!-- Category 6 -->
+                <div class="cat-card">
+                    <div class="cat-glow glow-green"></div>
+                    <div class="cat-icon-wrap bg-green-light">
+                        <i data-lucide="leaf"></i>
+                    </div>
+                    <h3 class="cat-title">Organic</h3>
+                    <div class="cat-count">5 Items</div>
+                    <div class="cat-explore">
+                        Explore <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-heading">Featured Products</h2>
+                    <p class="section-subheading">Best-selling products trusted by Tamil Nadu farmers</p>
+                </div>
+                <a href="#" class="view-all">
+                    View All Products <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+                </a>
+            </div>
+
+            <div class="prod-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="prod-img-wrap">
+                        <span class="prod-badge">Featured</span>
+                        <img src="https://images.unsplash.com/photo-1592424005697-360155b93d40?w=600&q=80" alt="Milking Machine" class="prod-img">
+                        <button class="quick-view">
+                            <i data-lucide="eye" style="width: 16px; height: 16px;"></i> Quick View
+                        </button>
+                    </div>
+                    <div class="prod-info">
+                        <div class="prod-category">Dairy Tools</div>
+                        <h3 class="prod-title">Premium Milking Machine Starter Kit</h3>
+                        <div class="stars" style="display: flex; gap: 2px; margin-bottom: 0.5rem;">
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <i data-lucide="star-half" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <span style="font-size: 0.75rem; color: #6B7280; margin-left: 4px;">(45)</span>
+                        </div>
+                        <div class="prod-price-row">
+                            <div>
+                                <span class="prod-price">₹12,499</span>
+                                <span class="prod-old-price">₹15,000</span>
+                            </div>
+                            <button class="btn-add">
+                                <i data-lucide="plus" style="width: 20px; height: 20px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="prod-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1589923158776-cb4485d99fd6?w=600&q=80" alt="Chaff Cutter" class="prod-img">
+                        <button class="quick-view">
+                            <i data-lucide="eye" style="width: 16px; height: 16px;"></i> Quick View
+                        </button>
+                    </div>
+                    <div class="prod-info">
+                        <div class="prod-category">Machinery</div>
+                        <h3 class="prod-title">Heavy Duty Chaff Cutter 2HP</h3>
+                        <div class="stars" style="display: flex; gap: 2px; margin-bottom: 0.5rem;">
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <span style="font-size: 0.75rem; color: #6B7280; margin-left: 4px;">(28)</span>
+                        </div>
+                        <div class="prod-price-row">
+                            <div>
+                                <span class="prod-price">₹22,900</span>
+                            </div>
+                            <button class="btn-add">
+                                <i data-lucide="plus" style="width: 20px; height: 20px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="prod-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&q=80" alt="Animal Feed" class="prod-img">
+                        <button class="quick-view">
+                            <i data-lucide="eye" style="width: 16px; height: 16px;"></i> Quick View
+                        </button>
+                    </div>
+                    <div class="prod-info">
+                        <div class="prod-category">Animal Care</div>
+                        <h3 class="prod-title">Premium Cattle Feed Supplement 50kg</h3>
+                        <div class="stars" style="display: flex; gap: 2px; margin-bottom: 0.5rem;">
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <i data-lucide="star" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <i data-lucide="star-half" style="width: 12px; fill: #D4AF37; stroke: none;"></i>
+                            <span style="font-size: 0.75rem; color: #6B7280; margin-left: 4px;">(112)</span>
+                        </div>
+                        <div class="prod-price-row">
+                            <div>
+                                <span class="prod-price">₹1,250</span>
+                                <span class="prod-old-price">₹1,400</span>
+                            </div>
+                            <button class="btn-add">
+                                <i data-lucide="plus" style="width: 20px; height: 20px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-center-btn">
+                <button class="btn-outline" style="border-color: var(--brand-green); color: var(--brand-green);">
+                    View All Equipment <i data-lucide="arrow-right" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-left: 8px;"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.06)';
+                header.style.padding = '0.5rem 0';
+            } else {
+                header.style.boxShadow = 'none';
+                header.style.padding = '1rem 0';
+            }
+        });
+
+        // Quick View Interaction (Mock)
+        document.querySelectorAll('.quick-view').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                alert('Opening Quick View Modal (Vanilla JS logic would handle this overlay)');
+            });
+        });
+        
+        // Add to Cart Interaction
+        document.querySelectorAll('.btn-add').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                // Animation feedback
+                const icon = btn.querySelector('i');
+                const prevHtml = icon.outerHTML;
+                btn.innerHTML = '<i data-lucide="check" style="width: 20px; height: 20px;"></i>';
+                btn.style.background = 'var(--brand-green)';
+                btn.style.color = 'white';
+                lucide.createIcons();
+                
+                setTimeout(() => {
+                    btn.innerHTML = prevHtml;
+                    btn.style.background = '';
+                    btn.style.color = '';
+                    lucide.createIcons();
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
